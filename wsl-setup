@@ -1,7 +1,5 @@
 #!usr/bin/env bash
 
-sudo apt update -y && sudo apt full-upgrade -y
-
 # install pyenv requirements
 # https://bit.ly/3EU10yZ
 echo "✨Installing pyenv requirements..."
@@ -23,6 +21,8 @@ sudo apt-get install -y \
   libxmlsec1-dev \
   libffi-dev \
   liblzma-dev
+
+sudo apt update -y && sudo apt full-upgrade -y
 
 # install latest git
 echo "✨Installing latest git..."
