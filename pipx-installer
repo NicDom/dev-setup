@@ -11,3 +11,7 @@ echo "✨Installing cookiecutter, nox, nox-poetry..."
 pipx install cookiecutter
 pipx install nox
 pipx inject nox nox-poetry
+
+# update pip
+echo "✨Updating pip..."
+pip install --upgrade pip
