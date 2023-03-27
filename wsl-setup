@@ -1,9 +1,9 @@
 #!usr/bin/env bash
 
-sudo apt update -y && sudo apt full-upgrade -y
+# sudo apt update -y && sudo apt full-upgrade -y
+curl -Ls https://raw.githubusercontent.com/NicDom/dev-setup/main/pyenv-setup | bash
 
 # pyenv
-curl -Ls https://raw.githubusercontent.com/NicDom/dev-setup/main/pyenv-setup | bash
 
 # install latest git
 echo "✨Installing latest git..."

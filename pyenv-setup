@@ -1,3 +1,6 @@
+# update
+sudo apt update -y && sudo apt full-upgrade -y
+
 # install pyenv requirements
 # https://bit.ly/3EU10yZ
 echo "✨Installing pyenv requirements..."
