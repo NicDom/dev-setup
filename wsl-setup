@@ -19,22 +19,6 @@ sudo apt install -y git
 # echo "✨Installing curl..."
 # sudo apt install curl -y
 
-
-# install starship
-echo "🚀Installing starship..."
-curl -sS https://starship.rs/install.sh | sh -s -- -y
-
-# install zsh
-echo "✨Installing zsh..."
-sudo apt install zsh -y
-
-# echo "make zsh default shell..."
-# chsh -s $(which zsh)
-
-# Install zsh config
-echo "✨Installing zsh config..."
-curl -Ls https://raw.githubusercontent.com/NicDom/zdotdir/main/installer | bash
-
 # install ripgrep
 echo "✨Installing ripgrep..."
 sudo apt install -y ripgrep
@@ -78,6 +62,9 @@ brew install neovim
 # sudo apt-get update -y
 # sudo apt-get install -y neovim
 
+# install zsh
+echo "✨Installing zsh..."
+curl -Ls https://raw.githubusercontent.com/NicDom/dev-setup/main/zsh-installer | bash
 
 echo "🚀Finished installing all the things!"
 echo "Following packages have been installed:"

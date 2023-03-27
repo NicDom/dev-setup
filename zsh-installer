@@ -1,0 +1,14 @@
+# install starship
+echo "🚀Installing starship..."
+curl -sS https://starship.rs/install.sh | sh -s -- -y
+
+# install zsh
+echo "✨Installing zsh..."
+sudo apt install zsh -y
+
+# Install zsh config
+echo "✨Installing zsh config..."
+curl -Ls https://raw.githubusercontent.com/NicDom/zdotdir/main/installer | bash
+
+# echo "make zsh default shell..."
+chsh -s $(which zsh)
