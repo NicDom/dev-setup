@@ -1,0 +1,61 @@
+# update
+sudo apt update -y && sudo apt full-upgrade -y
+
+# install pyenv requirements
+# https://bit.ly/3EU10yZ
+echo "✨Installing pyenv requirements..."
+sudo apt-get install -y \
+  make \
+  build-essential \
+  libssl-dev \
+  zlib1g-dev \
+  libbz2-dev \
+  libreadline-dev \
+  libsqlite3-dev \
+  wget \
+  curl \
+  llvm \
+  libncursesw5-dev \
+  xz-utils \
+  tk-dev \
+  libxml2-dev \
+  libxmlsec1-dev \
+  libffi-dev \
+  liblzma-dev
+
+# pyenv
+# https://bit.ly/3LbZ9HQ
+echo "✨Installing pyenv..."
+curl https://pyenv.run | bash
+
+# init pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init --path)"
+
+# install python
+echo "✨Installing python..."
+pyenv install 3.10.10
+pyenv global 3.10.10
+
+# pipx
+echo "✨Installing pipx..."
+python3 -m pip install --user pipx
+python3 -m pipx ensurepath
+
+# add pipx to path
+export PATH="$PATH:$HOME/.local/bin"
+
+# cookiecutter, nox, nox-poetry
+echo "✨Installing cookiecutter, nox, nox-poetry..."
+pipx install cookiecutter
+pipx install nox
+pipx inject nox nox-poetry
+
+# update pip
+echo "✨Updating pip..."
+pip install --upgrade pip
+
+# poetry
+echo "✨Installing poetry..."
+curl -sSL https://install.python-poetry.org | python3 -
