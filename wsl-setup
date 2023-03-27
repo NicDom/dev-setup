@@ -1,9 +1,11 @@
 #!usr/bin/env bash
 
 # sudo apt update -y && sudo apt full-upgrade -y
+# pyenv
 curl -Ls https://raw.githubusercontent.com/NicDom/dev-setup/main/pyenv-setup | bash
 
-# pyenv
+# pipx
+curl -Ls https://raw.githubusercontent.com/NicDom/dev-setup/main/pipx-installer | bash
 
 # install latest git
 echo "✨Installing latest git..."
@@ -14,8 +16,8 @@ sudo apt install -y git
 # curl
 # if you want to have the latest version run the command below
 # sudo add-apt-repository ppa:savoury1/curl34 -y
-echo "✨Installing curl..."
-sudo apt install curl -y
+# echo "✨Installing curl..."
+# sudo apt install curl -y
 
 
 # install starship
@@ -52,20 +54,6 @@ ln -s /usr/bin/batcat ~/.local/bin/bat
 # poetry
 echo "✨Installing poetry..."
 curl -sSL https://install.python-poetry.org | python3 -
-
-# pipx
-echo "✨Installing pipx..."
-python3 -m pip install --user pipx
-python3 -m pipx ensurepath
-
-# add pipx to path
-export PATH="$PATH:$HOME/.local/bin"
-
-# cookiecutter, nox, nox-poetry
-echo "✨Installing cookiecutter, nox, nox-poetry..."
-pipx install cookiecutter
-pipx install nox
-pipx inject nox nox-poetry
 
 # nvm
 echo "✨Installing nvm..."

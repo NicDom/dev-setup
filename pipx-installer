@@ -1,0 +1,13 @@
+# pipx
+echo "✨Installing pipx..."
+python3 -m pip install --user pipx
+python3 -m pipx ensurepath
+
+# add pipx to path
+export PATH="$PATH:$HOME/.local/bin"
+
+# cookiecutter, nox, nox-poetry
+echo "✨Installing cookiecutter, nox, nox-poetry..."
+pipx install cookiecutter
+pipx install nox
+pipx inject nox nox-poetry
