@@ -1,27 +1,5 @@
 #!usr/bin/env bash
 
-# install pyenv requirements
-# https://bit.ly/3EU10yZ
-echo "✨Installing pyenv requirements..."
-sudo apt-get install -y \
-  make \
-  build-essential \
-  libssl-dev \
-  zlib1g-dev \
-  libbz2-dev \
-  libreadline-dev \
-  libsqlite3-dev \
-  wget \
-  curl \
-  llvm \
-  libncursesw5-dev \
-  xz-utils \
-  tk-dev \
-  libxml2-dev \
-  libxmlsec1-dev \
-  libffi-dev \
-  liblzma-dev
-
 sudo apt update -y && sudo apt full-upgrade -y
 
 # install latest git
@@ -39,7 +17,7 @@ sudo apt install curl -y
 
 # install starship
 echo "🚀Installing starship..."
-curl -sS https://starship.rs/install.sh | sh
+curl -sS https://starship.rs/install.sh | sh -s -- -y
 
 # install zsh
 echo "✨Installing zsh..."
@@ -67,21 +45,8 @@ sudo apt install -y bat
 mkdir -p ~/.local/bin
 ln -s /usr/bin/batcat ~/.local/bin/bat
 
-
 # pyenv
-# https://bit.ly/3LbZ9HQ
-echo "✨Installing pyenv..."
-curl https://pyenv.run | bash
-
-# init pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init --path)"
-
-# install python
-echo "✨Installing python..."
-pyenv install 3.10.10
-pyenv global 3.10.10
+curl -Ls https://raw.githubusercontent.com/NicDom/dev-setup/main/pyenv-setup | bash
 
 # poetry
 echo "✨Installing poetry..."
