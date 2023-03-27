@@ -1,0 +1,116 @@
+#!usr/bin/env bash
+
+sudo apt update -y && sudo apt full-upgrade -y
+
+# install latest git
+echo "✨Installing latest git..."
+sudo add-apt-repository ppa:git-core/ppa
+sudo apt update -y
+sudo apt install -y git
+
+# curl
+# if you want to have the latest version run the command below
+# sudo add-apt-repository ppa:savoury1/curl34 -y
+echo "✨Installing curl..."
+sudo apt install curl -y
+
+
+# install zsh
+echo "✨Installing zsh..."
+sudo apt install zsh -y
+
+echo "make zsh default shell..."
+chsh -s $(which zsh)
+
+# Install zsh config
+echo "✨Installing zsh config..."
+curl -Ls https://raw.githubusercontent.com/NicDom/zdotdir/main/installer | bash
+
+exec zsh
+
+# install ripgrep
+echo "✨Installing ripgrep..."
+sudo apt install -y ripgrep
+
+# install fzf
+echo1 "✨Installing fzf..."
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+~/.fzf/install
+
+# install bat
+echo "✨Installing bat..."
+sudo apt install -y bat
+mkdir -p ~/.local/bin
+ln -s /usr/bin/batcat ~/.local/bin/bat
+
+# install pyenv requirements
+# https://bit.ly/3EU10yZ
+echo "✨Installing pyenv requirements..."
+sudo apt-get install -y \
+  make \
+  build-essential \
+  libssl-dev \
+  zlib1g-dev \
+  libbz2-dev \
+  libreadline-dev \
+  libsqlite3-dev \
+  wget \
+  curl \
+  llvm \
+  libncursesw5-dev \
+  xz-utils \
+  tk-dev \
+  libxml2-dev \
+  libxmlsec1-dev \
+  libffi-dev \
+  liblzma-dev
+
+# pyenv
+# https://bit.ly/3LbZ9HQ
+echo "✨Installing pyenv..."
+curl https://pyenv.run | bash
+pyenv install 3.10.10
+pyenv global 3.10.10
+
+# poetry
+echo "✨Installing poetry..."
+curl -sSL https://install.python-poetry.org | python3 -
+
+# pipx
+echo "✨Installing pipx..."
+python3 -m pip install --user pipx
+python3 -m pipx ensurepath
+
+# nvm
+echo "✨Installing nvm..."
+curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
+
+# brew
+echo "✨Installing brew..."
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+# node
+# brew install node
+# nvm install npm
+# nvm install node
+# nvm install --lts
+
+# install neovim
+echo "✨Installing neovim..."
+brew install neovim
+# sudo apt-get install -y software-properties-common
+# sudo add-apt-repository ppa:neovim-ppa/stable
+# sudo apt-get update -y
+# sudo apt-get install -y neovim
+
+# cookiecutter, nox, nox-poetry
+exec zsh
+echo "✨Installing cookiecutter, nox, nox-poetry..."
+pipx install cookiecutter
+pipx install nox
+pipx inject nox nox-poetry
+
+echo "🚀Finished installing all the things!"
+echo "Following packages have been installed:"
+echo "git, curl, zsh, ripgrep, fzf, bat, pyenv, poetry, pipx, nvm, brew, neovim, cookiecutter, nox, nox-poetry"
