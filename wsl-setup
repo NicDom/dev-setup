@@ -2,6 +2,28 @@
 
 sudo apt update -y && sudo apt full-upgrade -y
 
+# install pyenv requirements
+# https://bit.ly/3EU10yZ
+echo "✨Installing pyenv requirements..."
+sudo apt-get install -y \
+  make \
+  build-essential \
+  libssl-dev \
+  zlib1g-dev \
+  libbz2-dev \
+  libreadline-dev \
+  libsqlite3-dev \
+  wget \
+  curl \
+  llvm \
+  libncursesw5-dev \
+  xz-utils \
+  tk-dev \
+  libxml2-dev \
+  libxmlsec1-dev \
+  libffi-dev \
+  liblzma-dev
+
 # install latest git
 echo "✨Installing latest git..."
 sudo add-apt-repository ppa:git-core/ppa
@@ -45,27 +67,6 @@ sudo apt install -y bat
 mkdir -p ~/.local/bin
 ln -s /usr/bin/batcat ~/.local/bin/bat
 
-# install pyenv requirements
-# https://bit.ly/3EU10yZ
-echo "✨Installing pyenv requirements..."
-sudo apt-get install -y \
-  make \
-  build-essential \
-  libssl-dev \
-  zlib1g-dev \
-  libbz2-dev \
-  libreadline-dev \
-  libsqlite3-dev \
-  wget \
-  curl \
-  llvm \
-  libncursesw5-dev \
-  xz-utils \
-  tk-dev \
-  libxml2-dev \
-  libxmlsec1-dev \
-  libffi-dev \
-  liblzma-dev
 
 # pyenv
 # https://bit.ly/3LbZ9HQ
