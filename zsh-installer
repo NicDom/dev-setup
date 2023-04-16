@@ -1,13 +1,14 @@
 # update
 sudo apt update -y && sudo apt full-upgrade -y
 
-# install starship
-echo "🚀Installing starship..."
-curl -sS https://starship.rs/install.sh | sh -s -- -y
 
 # install zsh
 echo "✨Installing zsh..."
 sudo apt install zsh -y
+
+# Install zsh config
+echo "✨Installing zsh config..."
+curl -Ls https://raw.githubusercontent.com/NicDom/zdotdir/main/installer | bash
 
 # ripgrep, fzf, bat and starship are required for the zsh setup
 # install ripgrep
@@ -21,10 +22,10 @@ mkdir -p ~/.local/bin
 ln -s /usr/bin/batcat ~/.local/bin/bat
 
 # install fzf
-echo1 "✨Installing fzf..."
+echo "✨Installing fzf..."
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install
 
-# Install zsh config
-echo "✨Installing zsh config..."
-curl -Ls https://raw.githubusercontent.com/NicDom/zdotdir/main/installer | bash
+# install starship
+echo "🚀Installing starship..."
+curl -sS https://starship.rs/install.sh | sh -s -- -y
