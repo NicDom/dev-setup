@@ -1,17 +1,21 @@
 #!usr/bin/env bash
 
-# sudo apt update -y && sudo apt full-upgrade -y
-# pyenv
-curl -Ls https://raw.githubusercontent.com/NicDom/dev-setup/main/pyenv-setup | bash
+echo "🚀Setting up WSL!🚀"
+echo "Starting to install all the things..."
+echo "===================================="
+echo "🚀Setting up python..."
+# python
+curl -Ls https://raw.githubusercontent.com/NicDom/dev-setup/main/python-setup | bash
 
-# pipx
-curl -Ls https://raw.githubusercontent.com/NicDom/dev-setup/main/pipx-installer | bash
+# install zsh
+echo "🚀Setting up zsh..."
+curl -Ls https://raw.githubusercontent.com/NicDom/dev-setup/main/zsh-installer | bash
 
 # install latest git
-echo "✨Installing latest git..."
-sudo add-apt-repository ppa:git-core/ppa
-sudo apt update -y
-sudo apt install -y git
+# echo "✨Installing latest git..."
+# sudo add-apt-repository ppa:git-core/ppa
+# sudo apt update -y
+# sudo apt install -y git
 
 # curl
 # if you want to have the latest version run the command below
@@ -19,25 +23,8 @@ sudo apt install -y git
 # echo "✨Installing curl..."
 # sudo apt install curl -y
 
-# install ripgrep
-echo "✨Installing ripgrep..."
-sudo apt install -y ripgrep
-
-# install fzf
-echo1 "✨Installing fzf..."
-git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-~/.fzf/install
-
-# install bat
-echo "✨Installing bat..."
-sudo apt install -y bat
-mkdir -p ~/.local/bin
-ln -s /usr/bin/batcat ~/.local/bin/bat
 
 
-# poetry
-echo "✨Installing poetry..."
-curl -sSL https://install.python-poetry.org | python3 -
 
 # nvm
 echo "✨Installing nvm..."
@@ -56,15 +43,19 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 # install neovim
 echo "✨Installing neovim..."
+
+# echo "Downloading the Debian binary..."
+# wget https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.deb
+# echo "Installing the Debian binary..."
+# sudo apt install ./nvim-linux64.deb
+# echo "Cleaning up..."
+# rm nvim-linux64.deb
+
 brew install neovim
 # sudo apt-get install -y software-properties-common
 # sudo add-apt-repository ppa:neovim-ppa/stable
 # sudo apt-get update -y
 # sudo apt-get install -y neovim
-
-# install zsh
-echo "✨Installing zsh..."
-curl -Ls https://raw.githubusercontent.com/NicDom/dev-setup/main/zsh-installer | bash
 
 echo "🚀Finished installing all the things!"
 echo "Following packages have been installed:"
