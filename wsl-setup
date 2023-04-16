@@ -7,9 +7,6 @@ echo "🚀Setting up python..."
 # python
 curl -Ls https://raw.githubusercontent.com/NicDom/dev-setup/main/python-setup | bash
 
-# install zsh
-echo "🚀Setting up zsh..."
-curl -Ls https://raw.githubusercontent.com/NicDom/dev-setup/main/zsh-installer | bash
 
 # install latest git
 # echo "✨Installing latest git..."
@@ -29,6 +26,7 @@ curl -Ls https://raw.githubusercontent.com/NicDom/dev-setup/main/zsh-installer |
 # nvm
 echo "✨Installing nvm..."
 curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
+nvm install node
 
 # brew
 echo "✨Installing brew..."
@@ -57,6 +55,13 @@ brew install neovim
 # sudo apt-get update -y
 # sudo apt-get install -y neovim
 
+# install zsh
+echo "🚀Setting up zsh..."
+curl -Ls https://raw.githubusercontent.com/NicDom/dev-setup/main/zsh-installer | bash
+
 echo "🚀Finished installing all the things!"
 echo "Following packages have been installed:"
 echo "git, curl, zsh, ripgrep, fzf, bat, pyenv, poetry, pipx, nvm, brew, neovim, cookiecutter, nox, nox-poetry"
+
+echo "🚀Make zsh the default shell..."
+chsh -s $(which zsh)
